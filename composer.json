@@ -1,5 +1,5 @@
 {
-	"name": "consistence/consistence-jms-serializer",
+	"name": "consistence-community/consistence-jms-serializer",
 	"description": "Integration of Consistence library with JMS Serializer",
 	"license": "MIT",
 	"authors": [
@@ -23,6 +23,9 @@
 	},
 	"conflict": {
 		"doctrine/annotations": "<1.11"
+	},
+	"replace": {
+		"consistence/consistence-jms-serializer": "2.*"
 	},
 	"autoload": {
 		"psr-4": { "Consistence\\JmsSerializer\\": [ "src" ] },

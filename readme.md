@@ -1,14 +1,22 @@
 Integration of Consistence library with JMS Serializer
 ======================================================
 
-This library provides integration of [Consistence](https://github.com/consistence/consistence) value objects for [JMS Serializer](http://jmsyst.com/libs/serializer) so that you can use them in your serialization mappings.
 
-For now, the only integration which is needed is for [Enums](https://github.com/consistence/consistence/blob/master/docs/Enum/enums.md), see the examples below.
+**This package is a fork of [`consistence/consistence-jms-serializer`](https://github.com/consistence/consistence-jms-serializer) maintained by community to support new PHP versions.**
+
+---
+
+
+
+
+This library provides integration of [Consistence](https://github.com/consistence-community/consistence) value objects for [JMS Serializer](http://jmsyst.com/libs/serializer) so that you can use them in your serialization mappings.
+
+For now, the only integration which is needed is for [Enums](https://github.com/consistence-community/consistence/blob/master/docs/Enum/enums.md), see the examples below.
 
 Usage
 -----
 
-[Enums](https://github.com/consistence/consistence/blob/master/docs/Enum/enums.md) represent predefined set of values and of course, you will want to serialize and deserialize these values as well. Since [`Enums`](https://github.com/consistence/consistence/blob/master/src/Enum/Enum.php) are objects and you only want to (de)serialize represented value, there has to be some mapping.
+[Enums](https://github.com/consistence-community/consistence/blob/master/docs/Enum/enums.md) represent predefined set of values and of course, you will want to serialize and deserialize these values as well. Since [`Enums`](https://github.com/consistence-community/consistence/blob/master/src/Enum/Enum.php) are objects and you only want to (de)serialize represented value, there has to be some mapping.
 
 You can see it in this example where you want to (de)serialize sex for your `User`s:
 
@@ -115,7 +123,7 @@ Both serialization and deserialization will accept `null` values, there is no sp
 
 ### Invalid values
 
-While serializing, there should be no invalid values, because [Enums](https://github.com/consistence/consistence/blob/master/docs/Enum/enums.md) guarantee that the instance contains only valid values.
+While serializing, there should be no invalid values, because [Enums](https://github.com/consistence-community/consistence/blob/master/docs/Enum/enums.md) guarantee that the instance contains only valid values.
 
 While deserializing, there can be an invalid value given, an exception will be thrown:
 
@@ -163,9 +171,9 @@ class User extends \Consistence\ObjectPrototype
 
 ### Special support for mapped MultiEnums
 
-Since the (de)serialization works only with the value the enum is representing, then in case of [MultiEnums](https://github.com/consistence/consistence/blob/master/docs/Enum/multi-enums.md) this would mean outputting the value of the internal bit mask. This could be useful if both the client and server use the same Enum objects, but otherwise this breaks the abstraction and is less readable for a human consumer as well.
+Since the (de)serialization works only with the value the enum is representing, then in case of [MultiEnums](https://github.com/consistence-community/consistence/blob/master/docs/Enum/multi-enums.md) this would mean outputting the value of the internal bit mask. This could be useful if both the client and server use the same Enum objects, but otherwise this breaks the abstraction and is less readable for a human consumer as well.
 
-If you are using a [MultiEum mapped to a single Enum](https://github.com/consistence/consistence/blob/master/docs/Enum/multi-enums.md#mapping-a-multienum-to-a-single-enum) there is a handy solution provided, if you add to your mapping `enum<Your\Enum\Class, as_single>` - notice the new `as_single` parameter, then the value of `MultiEnum` will be serialized as a collection of single `Enum` values:
+If you are using a [MultiEum mapped to a single Enum](https://github.com/consistence-community/consistence/blob/master/docs/Enum/multi-enums.md#mapping-a-multienum-to-a-single-enum) there is a handy solution provided, if you add to your mapping `enum<Your\Enum\Class, as_single>` - notice the new `as_single` parameter, then the value of `MultiEnum` will be serialized as a collection of single `Enum` values:
 
 ```php
 <?php
@@ -301,12 +309,12 @@ class Consistence\JmsSerializer\Example\User\User#48 (1) {
 Installation
 ------------
 
-> If you are using Symfony, you can use [`consistence/consistence-jms-serializer-symfony`](https://github.com/consistence/consistence-jms-serializer-symfony), which will take care of the integration.
+> If you are using Symfony, you can use [`consistence/consistence-jms-serializer-symfony`](https://github.com/consistence-community/consistence-jms-serializer-symfony), which will take care of the integration.
 
-1) Install package [`consistence/consistence-jms-serializer`](https://packagist.org/packages/consistence/consistence-jms-serializer) with [Composer](https://getcomposer.org/):
+1) Install package [`consistence-community/consistence-jms-serializer`](https://packagist.org/packages/consistence-community/consistence-jms-serializer) with [Composer](https://getcomposer.org/):
 
 ```bash
-composer require consistence/consistence-jms-serializer
+composer require consistence-community/consistence-jms-serializer
 ```
 
 2) Register [serialization handler](http://jmsyst.com/libs/serializer/master/handlers#subscribing-handlers):
