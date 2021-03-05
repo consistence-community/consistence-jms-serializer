@@ -309,8 +309,6 @@ class Consistence\JmsSerializer\Example\User\User#48 (1) {
 Installation
 ------------
 
-> If you are using Symfony, you can use [`consistence/consistence-jms-serializer-symfony`](https://github.com/consistence-community/consistence-jms-serializer-symfony), which will take care of the integration.
-
 1) Install package [`consistence-community/consistence-jms-serializer`](https://packagist.org/packages/consistence-community/consistence-jms-serializer) with [Composer](https://getcomposer.org/):
 
 ```bash
@@ -333,5 +331,15 @@ $serializer = SerializerBuilder::create()
 	})
 	->build();
 ```
+
+If you are using Symfony, you can instead register the handler in the `config/services.yaml` file:
+
+```yaml
+services:
+    Consistence\JmsSerializer\Enum\EnumSerializerHandler:
+        tags:
+            - { name: jms_serializer.subscribing_handler }
+```
+
 
 That's all, you are good to go!
