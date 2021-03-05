@@ -21,6 +21,9 @@
 		"phing/phing": "2.16.4",
 		"phpunit/phpunit": "9.5.2"
 	},
+	"conflict": {
+		"doctrine/annotations": "<1.11"
+	},
 	"autoload": {
 		"psr-4": { "Consistence\\JmsSerializer\\": [ "src" ] },
 		"classmap": [ "src" ]
